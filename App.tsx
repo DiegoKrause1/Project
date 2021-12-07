@@ -13,6 +13,7 @@ import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import { Login } from './src/screens/Login';
 import { theme } from './src/global/styles/theme';
+import { Routes } from './src/routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -32,7 +33,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Login />
+      <Routes />
     </View>
   );
 }

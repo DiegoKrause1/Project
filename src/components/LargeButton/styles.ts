@@ -16,9 +16,15 @@ export const styles = StyleSheet.create({
     borderRadius: 12,
   },
   title: {
-    fontSize: 18,
-    fontFamily: theme.fonts.regular,
+    fontSize: 20,
+    fontFamily: theme.fonts.bold,
     color: theme.colors.white.title,
+    marginRight: 8
+  },
+  titleOpacity: {
+    fontSize: 20,
+    fontFamily: theme.fonts.bold,
+    color: '#3DD598',
     marginRight: 8
   }
 })

@@ -11,6 +11,6 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: theme.fonts.medium,
     color: theme.colors.white.subTitle,
-    marginTop: 18
+    marginTop: 18,
   }
 })
