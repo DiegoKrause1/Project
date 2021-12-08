@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export function Login() {
   const navigation = useNavigation();
-
+ 
   function createAccount() {
     navigation.navigate('SignUp');
   }
