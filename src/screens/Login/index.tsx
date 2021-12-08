@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
-  Text
+  Text,
+  Alert
 } from 'react-native';
 import { styles } from './styles';
 import Person from '../../assets/Name_Field_Icon.png';
@@ -11,10 +12,11 @@ import { Input } from '../../components/Input';
 import { Header } from '../../components/Header';
 import { LargeButton } from '../../components/LargeButton';
 import { useNavigation } from '@react-navigation/native';
+import { createAccount } from '../../services/createAccount';
 
 export function Login() {
   const navigation = useNavigation();
- 
+
   function createAccount() {
     navigation.navigate('SignUp');
   }
@@ -23,7 +25,7 @@ export function Login() {
     <View style={styles.container}>
       <Header title="Wellcome!" subTitle="Sign in to continue" />
       <Input image={Person} placeholder="Your username" />
-      <Input image={Password} placeholder="Your password" secureTextEntry/>
+      <Input image={Password} placeholder="Your password" secureTextEntry />
       <LargeButton opacity={false} activeOpacity={.8} image={Vector} title="Login" />
       <Text style={styles.forgotPassword}>Forgot Password?</Text>
       <LargeButton onPress={createAccount} opacity={true} activeOpacity={.8} image={Vector} title="Create an Account" />

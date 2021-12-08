@@ -14,6 +14,7 @@ import AppLoading from 'expo-app-loading';
 import { Login } from './src/screens/Login';
 import { theme } from './src/global/styles/theme';
 import { Routes } from './src/routes';
+import { NativeBaseProvider } from 'native-base';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,14 +28,16 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
-      <Routes />
-    </View>
+    <NativeBaseProvider>
+      <View style={styles.container}>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
+        <Routes />
+      </View>
+    </NativeBaseProvider>
   );
 }
 
