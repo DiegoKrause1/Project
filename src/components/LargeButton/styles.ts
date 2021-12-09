@@ -2,18 +2,19 @@ import { StyleSheet } from "react-native";
 import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
-  container: {
+  button: {
     width: 313,
     height: 58,
-    marginTop: 64
+    marginTop: 64,
+    backgroundColor: theme.colors.green[100],
+    borderRadius: 12
   },
-  button: {
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    borderRadius: 12,
+  buttonOpacity: {
+    width: 313,
+    height: 58,
+    marginTop: 64,
+    backgroundColor: '#286053',
+    borderRadius: 12
   },
   title: {
     fontSize: 20,

@@ -1,4 +1,5 @@
-import React from 'react';
+//NATIVES
+import React, { ButtonHTMLAttributes } from 'react';
 import {
   Text,
   Image,
@@ -7,54 +8,41 @@ import {
   TouchableOpacityProps,
   ImageSourcePropType
 } from 'react-native';
+
+//COMPONENTS
 import { LinearGradient } from 'expo-linear-gradient'
+
+//STYLES
 import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
 
-type Props = TouchableOpacityProps & {
+//UI KIT
+import { Button, IButtonProps } from 'native-base';
+
+//PROPS
+type Props = IButtonProps & {
   title: string;
-  image: ImageSourcePropType;
-  opacity?: boolean;
+  transparency: boolean;
 }
 
-export function LargeButton({ title, image, opacity, ...rest }: Props) {
-
+//VIEW
+export function LargeButton({ title, transparency, ...rest }: Props) {
   return (
     <View>
       {
-        opacity ?
-          <TouchableOpacity style={styles.container} {...rest}>
-            <LinearGradient
-              colors={['#286053', '#286053']}
-              style={styles.button}
-            >
-              <Text style={styles.titleOpacity}>
-                {title}
-              </Text>
-            </LinearGradient>
-          </TouchableOpacity>
+        transparency ?
+          <Button style={styles.buttonOpacity} {...rest}>
+            <Text style={styles.titleOpacity}>
+              {title}
+            </Text>
+          </Button>
           :
-          <TouchableOpacity style={styles.container} {...rest}>
-            <LinearGradient
-              colors={[theme.colors.green[100], theme.colors.green[90]]}
-              style={styles.button}
-            >
-              <Text style={styles.title}>
-                {title}
-              </Text>
-            </LinearGradient>
-          </TouchableOpacity>
+          <Button style={styles.button} {...rest}>
+            <Text style={styles.title}>
+              {title}
+            </Text>
+          </Button>
       }
     </View>
-    // <TouchableOpacity style={styles.container} {...rest}>
-    //   <LinearGradient
-    //     colors={[theme.colors.green[100], theme.colors.green[90]]}
-    //     style={styles.button}
-    //   >
-    //     <Text style={styles.title}>
-    //       {title}
-    //     </Text>
-    //   </LinearGradient>
-    // </TouchableOpacity>
   );
 }
