@@ -1,5 +1,5 @@
 //NATIVES
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
 } from 'react-native';
@@ -31,7 +31,7 @@ export function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(false);
 
   //DECLARATIONS
   const toast = useToast();
@@ -39,33 +39,33 @@ export function SignUp() {
 
   //FUNCTIONS
   function createAccountService() {
-    //setLoading(loading => !loading)
+    setLoading(true);
     (password && repeatPassword !== '' && password === repeatPassword) ?
       createAccount(email, password).then(() => {
-        //loading = false;
         console.log('success')
         toast.show({
           title: 'Conta criada com sucesso!',
           status: 'success',
           placement: 'top'
         })
+        setLoading(false);
         navigation.navigate('Home');
       }).catch(err => {
-        //loading = false;
         toast.show({
           title: 'Erro ao criar a sua conta',
           status: 'error',
           placement: 'top',
           description: err.message
         })
+        setLoading(false);
       })
       :
-      //loading = false;
-    toast.show({
-      title: 'As senhas não conferem',
-      status: 'warning',
-      description: 'Digite a mesma senha nos campos'
-    })
+      toast.show({
+        title: 'As senhas não conferem',
+        status: 'warning',
+        description: 'Digite a mesma senha nos campos',
+      })
+      setLoading(false);
   }
 
   //VIEW
